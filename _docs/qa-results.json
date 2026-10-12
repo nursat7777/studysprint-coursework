@@ -1,0 +1,746 @@
+{
+  "issues": [
+    {
+      "number": 1,
+      "status": "PASS",
+      "commit": "[private local development commit]",
+      "acceptance": [
+        {
+          "criterion": "React TypeScript shell renders the StudySprint title in an executed DOM component smoke test; production build succeeds.",
+          "verdict": "PASS",
+          "evidence": "Independent post-fix npm test: 1 file, 1 test passes; main contains h1 StudySprint. npm run build exits 0 and generates dist."
+        },
+        {
+          "criterion": "A meaningful smoke or model test actually passes before feature work.",
+          "verdict": "PASS",
+          "evidence": "npm test: 1 file, 1 test passed; main landmark contains StudySprint heading."
+        },
+        {
+          "criterion": "Document npm installation, development and test commands.",
+          "verdict": "PASS",
+          "evidence": "README Run locally documents npm ci, npm run dev, npm test, npm run build."
+        },
+        {
+          "criterion": "Dependency installation and test/build commands are executed; failures corrected. Local dev-server configuration and command are documented; managed-environment server execution remains unverified.",
+          "verdict": "PASS",
+          "evidence": "npm install log records exit 0. Post-fix npm test and npm run build exit 0. package.json dev uses vite --host 127.0.0.1; README documents command. Server startup not rerun under managed rule."
+        },
+        {
+          "criterion": "Implemented changes committed; independent QA records acceptance results. Link real issue/commit when available; close only after verification.",
+          "verdict": "PASS",
+          "evidence": "Implementation [private local development commit]; this independent report; actual GitHub issue currently unavailable and no closure claimed.; host fix [private local development commit]"
+        },
+        {
+          "criterion": "Changes committed with genuine history; actual issue linked when available.",
+          "verdict": "PASS",
+          "evidence": "git show verified [private local development commit]; remote issue unavailable.; host fix [private local development commit]"
+        },
+        {
+          "criterion": "Independent QA records acceptance evidence; failures fixed before closure.",
+          "verdict": "PASS",
+          "evidence": "Startup host changed in [private local development commit]; new criterion explicitly limits verification to config review, DOM test and build. No GitHub closure claimed."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "status": "PASS",
+      "commit": "[private local development commit]",
+      "acceptance": [
+        {
+          "criterion": "Task schema has unique string id, title, subject, dueDate, priority, notes, completed and createdAt.",
+          "verdict": "PASS",
+          "evidence": "Model Task interface and independent temporary test exact key-set; parser rejects duplicate IDs."
+        },
+        {
+          "criterion": "Create generates a unique stable ID and genuine createdAt timestamp.",
+          "verdict": "PASS",
+          "evidence": "Independent temporary test creates two distinct IDs and bounds createdAt between measured Date.now before/after."
+        },
+        {
+          "criterion": "Trim title and subject before validation and saving.",
+          "verdict": "PASS",
+          "evidence": "Executed model test validates trimmed saved title/subject."
+        },
+        {
+          "criterion": "Title accepts 1\u2013120 characters after trimming; rejects blank or 121+.",
+          "verdict": "PASS",
+          "evidence": "Executed model boundary test accepts120/rejects121 and blank title."
+        },
+        {
+          "criterion": "Subject accepts 1\u201380 characters after trimming; rejects blank or 81+.",
+          "verdict": "PASS",
+          "evidence": "Executed model boundary test accepts80/rejects81; independent test blank subject rejected."
+        },
+        {
+          "criterion": "Notes are optional and accept at most 2000 characters.",
+          "verdict": "PASS",
+          "evidence": "Executed boundary test notes2000 accepted/2001 rejected; empty notes valid."
+        },
+        {
+          "criterion": "Priority is exactly low, medium or high; default medium is visible.",
+          "verdict": "PASS",
+          "evidence": "Independent temporary test rejects urgent priority; DOM Priority value medium; model constrains low/medium/high."
+        },
+        {
+          "criterion": "Due date is an actual local calendar date in YYYY-MM-DD format.",
+          "verdict": "PASS",
+          "evidence": "Executed calendar test accepts leap date and rejects invalid formats/months/days."
+        },
+        {
+          "criterion": "Past due dates are accepted as valid assignment dates; impossible dates are rejected.",
+          "verdict": "PASS",
+          "evidence": "Executed calendar test accepts2000-01-01 and rejects impossible dates."
+        },
+        {
+          "criterion": "Edit updates the existing ID rather than adding a duplicate.",
+          "verdict": "PASS",
+          "evidence": "Executed model edit test retains id; component edit replaces title and persisted reload yields single edited assignment."
+        },
+        {
+          "criterion": "Editing does not unexpectedly change completion or createdAt.",
+          "verdict": "PASS",
+          "evidence": "Executed model edit test retains completed true and createdAt."
+        },
+        {
+          "criterion": "Complete marks a task completed; reopen restores it to active.",
+          "verdict": "PASS",
+          "evidence": "Executed component CRUD test clicks Complete and Reopen and observes corresponding button."
+        },
+        {
+          "criterion": "Delete asks confirmation; cancellation leaves all tasks unchanged.",
+          "verdict": "PASS",
+          "evidence": "Executed component CRUD test mocks confirm false and observes retained assignment. Independent temporary test mocks true with two records and removes only first."
+        },
+        {
+          "criterion": "Confirmed deletion removes only the selected task.",
+          "verdict": "PASS",
+          "evidence": "Independent temporary selected-deletion test verifies second record and persisted task count1."
+        },
+        {
+          "criterion": "Validation errors are visible near fields and prevent mutation.",
+          "verdict": "PASS",
+          "evidence": "Executed validation test shows errors with no new assignment; independent test asserts title aria-describedby and subject aria-invalid."
+        },
+        {
+          "criterion": "Saved tasks survive browser refresh.",
+          "verdict": "PASS",
+          "evidence": "Executed component unmount/remount reads persisted Revised essay. This is jsdom persisted reload, not actual browser refresh."
+        },
+        {
+          "criterion": "Missing storage initializes an empty state.",
+          "verdict": "PASS",
+          "evidence": "Executed model load missing data equals emptyState."
+        },
+        {
+          "criterion": "Malformed stored JSON/schema is handled without application crash.",
+          "verdict": "PASS",
+          "evidence": "Executed model malformed JSON check blocked; independent malformed-schema check returns blocked without throwing."
+        },
+        {
+          "criterion": "Corrupt storage is reported visibly and not silently presented as valid data.",
+          "verdict": "PASS",
+          "evidence": "Executed corrupt-storage component test alert includes preserved and storage remains broken."
+        },
+        {
+          "criterion": "Storage write/quota failure is visible; never falsely claim successful persistence.",
+          "verdict": "PASS",
+          "evidence": "Executed quota component test alert Changes were not saved and no new task."
+        },
+        {
+          "criterion": "A failed storage write preserves prior saved records.",
+          "verdict": "PASS",
+          "evidence": "Executed quota model test setItem throw leaves exact previous saved JSON."
+        },
+        {
+          "criterion": "Task text is rendered safely without raw HTML.",
+          "verdict": "PASS",
+          "evidence": "Independent temporary DOM test displays literal img/script text and contains no img/script elements."
+        },
+        {
+          "criterion": "Automated tests exercise trim/blank/maximum lengths and date validity.",
+          "verdict": "PASS",
+          "evidence": "npm test executed model trim/length/calendar cases."
+        },
+        {
+          "criterion": "Automated tests cover edit identity, completion/reopen and storage validation.",
+          "verdict": "PASS",
+          "evidence": "npm test executed identity/completion component and model storage cases."
+        },
+        {
+          "criterion": "Testing Library component integration tests exercise create/edit/delete/complete and persisted reload behavior.",
+          "verdict": "PASS",
+          "evidence": "npm test executed create/edit/delete/complete/reopen/persisted remount integrated test."
+        },
+        {
+          "criterion": "Changes committed with genuine history; actual issue linked when available.",
+          "verdict": "PASS",
+          "evidence": "git show verified implementation69e3760 and genuine followup evidence d141339; real issue unavailable."
+        },
+        {
+          "criterion": "Independent QA records acceptance evidence; failures fixed before closure.",
+          "verdict": "PASS",
+          "evidence": "This independently committed QA report records all criteria; no defects left under scope clarified ed37437."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "status": "PASS",
+      "commit": "[private local development commit]",
+      "acceptance": [
+        {
+          "criterion": "Total count includes all tasks.",
+          "verdict": "PASS",
+          "evidence": "Executed summarize model test total3; independent total4 over seeded tasks."
+        },
+        {
+          "criterion": "Completed count includes only completed tasks.",
+          "verdict": "PASS",
+          "evidence": "Executed summarize completed1; independent completed1."
+        },
+        {
+          "criterion": "Overdue count includes only active tasks with date before local today.",
+          "verdict": "PASS",
+          "evidence": "Executed summarize overdue1 for active previous-day task; completed older task excluded."
+        },
+        {
+          "criterion": "Due-today count includes active tasks due on the local current date.",
+          "verdict": "PASS",
+          "evidence": "Executed summarize dueToday1; independent local midnight test also dueToday1."
+        },
+        {
+          "criterion": "Counts remain unchanged when list search/filter changes.",
+          "verdict": "PASS",
+          "evidence": "Executed component search changes show no-results but Assignment overview remains All assignments1."
+        },
+        {
+          "criterion": "Completed past-date tasks are excluded from urgency counts.",
+          "verdict": "PASS",
+          "evidence": "Executed summarize excludes completed past-date task from overdue/dueToday."
+        },
+        {
+          "criterion": "Search matches title, subject and notes case-insensitively.",
+          "verdict": "PASS",
+          "evidence": "Independent temporary test queries alpha/BIOLOGY/Notes, each matches all4 tasks."
+        },
+        {
+          "criterion": "Empty search restores all otherwise matching tasks.",
+          "verdict": "PASS",
+          "evidence": "Independent temporary empty search returns all4 in otherwise all filters; component Clear filters restores task."
+        },
+        {
+          "criterion": "Status filter supports all, active and completed.",
+          "verdict": "PASS",
+          "evidence": "Independent completed filter returns only c; executed model combined active filter and native all/active/completed options source."
+        },
+        {
+          "criterion": "Priority filter supports all, low, medium and high.",
+          "verdict": "PASS",
+          "evidence": "Independent test each low/medium/high yields corresponding priority; all returns4."
+        },
+        {
+          "criterion": "Search and both filters combine rather than overwrite each other.",
+          "verdict": "PASS",
+          "evidence": "Executed model and independent temporary combined review/high/active returns a only."
+        },
+        {
+          "criterion": "Due-date sort orders earlier dates first.",
+          "verdict": "PASS",
+          "evidence": "Independent temporary due-date sort returns earliest z then deterministic a/b/c."
+        },
+        {
+          "criterion": "Priority sort orders high before medium before low.",
+          "verdict": "PASS",
+          "evidence": "Independent priority sort returns a,c(high),b(medium),z(low)."
+        },
+        {
+          "criterion": "Equal sort keys produce deterministic ordering.",
+          "verdict": "PASS",
+          "evidence": "Executed equal-key sort uses dueDate/createdAt/id fallback; independent expects a before c."
+        },
+        {
+          "criterion": "Sorting preserves the underlying records and IDs.",
+          "verdict": "PASS",
+          "evidence": "Independent temporary JSON before/after identical; IDs unchanged."
+        },
+        {
+          "criterion": "Filtered no-results state explains how to adjust filters.",
+          "verdict": "PASS",
+          "evidence": "Executed DOM test observes No matching assignments and Clear filters action; explanation adjusts search/status/priority."
+        },
+        {
+          "criterion": "Empty task state provides a clear create action.",
+          "verdict": "PASS",
+          "evidence": "Independent DOM clicks Create an assignment and Title receives focus."
+        },
+        {
+          "criterion": "Every form/filter input has a persistent associated label.",
+          "verdict": "PASS",
+          "evidence": "Independent temporary iterates every input/select/textarea and finds label[for=id]."
+        },
+        {
+          "criterion": "Buttons use native keyboard activation and visible focus.",
+          "verdict": "PASS",
+          "evidence": "Independent DOM verifies button elements native; CSS :focus-visible sets outline3px+offset3px. Visual focus not inspected."
+        },
+        {
+          "criterion": "Urgency and priority have text labels in addition to color.",
+          "verdict": "PASS",
+          "evidence": "Source renders Overdue/Due today/completed and high/medium/low priority text; dashboard labels present."
+        },
+        {
+          "criterion": "Responsive CSS defines stacked phone layout, min-width constraints and wrapping; actual browser overflow verification remains unverified.",
+          "verdict": "PASS",
+          "evidence": "CSS760px layout1fr, workspace padding14px, min-width0 fields, stats2cols. Actual overflow unverified."
+        },
+        {
+          "criterion": "Desktop CSS defines readable assignment panels; timer-panel integration is delivered in follow-up draft 04.",
+          "verdict": "PASS",
+          "evidence": "Source grid minmax(0,1.6fr)/minmax(300px,1fr) plus semantic assignment/form panels. Timer integration deferred04. Actual desktop readability unverified."
+        },
+        {
+          "criterion": "CSS wraps long titles/notes and preserves native controls in DOM; actual visual clipping verification remains unverified.",
+          "verdict": "PASS",
+          "evidence": "Source task overflow-wrap:anywhere and task-actions flex-wrap:wrap; notes white-space pre-wrap. Actual visual clipping unverified."
+        },
+        {
+          "criterion": "Unit tests cover combined search/filter/sort and date counts.",
+          "verdict": "PASS",
+          "evidence": "Executed model9 tests include combined filter/sort/date counts; additional independent filter/date checks2 pass."
+        },
+        {
+          "criterion": "Inspect responsive CSS/source and DOM structure; record actual browser viewport inspection as unavailable unless executed.",
+          "verdict": "PASS",
+          "evidence": "Reviewed CSS/source+DOM as above; browser viewport inspection unavailable and not performed."
+        },
+        {
+          "criterion": "DOM integration verifies associated labels and keyboard-operable native controls; visual focus/viewport inspection remains an explicit external limitation.",
+          "verdict": "PASS",
+          "evidence": "Independent test associated labels and native button elements; create action focus works jsdom. Browser keyboard/viewport/visual focus unverified."
+        },
+        {
+          "criterion": "Changes committed with genuine history; actual issue linked when available.",
+          "verdict": "PASS",
+          "evidence": "Implementation commit52eaa57 verified; real issue unavailable."
+        },
+        {
+          "criterion": "Independent QA records acceptance evidence; failures fixed before closure.",
+          "verdict": "PASS",
+          "evidence": "Independent report and full acceptance record committed; no reproducible behavioral defects."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "status": "PASS",
+      "commit": "[private local development commit]",
+      "acceptance": [
+        {
+          "criterion": "Duration accepts integers from 1 through 120 minutes inclusive.",
+          "verdict": "PASS",
+          "evidence": "Executed validDuration test accepts1/25/120."
+        },
+        {
+          "criterion": "Reject zero, negative, fractional, nonnumeric and 121+ minute values.",
+          "verdict": "PASS",
+          "evidence": "Executed validDuration rejects0,-1,1.5,121,abc,empty."
+        },
+        {
+          "criterion": "Default duration is visibly 25 minutes.",
+          "verdict": "PASS",
+          "evidence": "Executed component asserts duration field25."
+        },
+        {
+          "criterion": "Timer can be linked to one existing task or no task.",
+          "verdict": "PASS",
+          "evidence": "Executed App link/select test; independent StrictMode uses task id; source select allows unlinked."
+        },
+        {
+          "criterion": "Start begins countdown from configured duration.",
+          "verdict": "PASS",
+          "evidence": "Executed1min start after1second00:59."
+        },
+        {
+          "criterion": "Pause stops decrementing while retaining remaining time.",
+          "verdict": "PASS",
+          "evidence": "Executed pause advance5000 keeps00:59."
+        },
+        {
+          "criterion": "Resume continues from remaining time.",
+          "verdict": "PASS",
+          "evidence": "Executed resume remaining59sec completes at00:00."
+        },
+        {
+          "criterion": "Reset stops timer and restores selected configured duration.",
+          "verdict": "PASS",
+          "evidence": "Executed reset restores01:00 and does not add session."
+        },
+        {
+          "criterion": "Only one active countdown loop exists after repeated start/resume.",
+          "verdict": "PASS",
+          "evidence": "Independent repeated pause/resume3 cycles under StrictMode tracks setInterval minus clearInterval exactly1 running,0 paused."
+        },
+        {
+          "criterion": "Component cleanup clears timers.",
+          "verdict": "PASS",
+          "evidence": "Executed FocusTimer unmount timer count0; effect cleanup clears interval."
+        },
+        {
+          "criterion": "Zero crossing stops countdown without negative displayed time.",
+          "verdict": "PASS",
+          "evidence": "Executed completion00:00 then10sec later session count1; independent15sec over5sec countdown remaining0."
+        },
+        {
+          "criterion": "One completed countdown appends exactly one completed session.",
+          "verdict": "PASS",
+          "evidence": "Executed exactlyone completion; independent StrictMode completion persists exactly1 after extra elapsed time."
+        },
+        {
+          "criterion": "Session has unique ID, optional task ID, durationMinutes and completedAt.",
+          "verdict": "PASS",
+          "evidence": "Independent persisted session has nonempty id,taskId,duration1,finite completedAt; code uses randomUUID and new Date ISO."
+        },
+        {
+          "criterion": "Pause/reset does not record a completed session.",
+          "verdict": "PASS",
+          "evidence": "Executed pause leaves no completed session, reset after completion keeps1 rather than adding."
+        },
+        {
+          "criterion": "Settings and completed session history persist after reload.",
+          "verdict": "PASS",
+          "evidence": "Independent App completion unmount/remount retains duration1 and history task label."
+        },
+        {
+          "criterion": "Refresh restores remaining timer snapshot paused.",
+          "verdict": "PASS",
+          "evidence": "Executed snapshot12sec restoration after5sec still12; App linked timer remount persists."
+        },
+        {
+          "criterion": "Refresh does not count elapsed wall time or auto-complete a session.",
+          "verdict": "PASS",
+          "evidence": "Executed snapshot advance5000 not running unchanged; no walltime calculation in restore."
+        },
+        {
+          "criterion": "Deleting linked task detaches or safely resolves the timer link.",
+          "verdict": "PASS",
+          "evidence": "Executed App deletion select empty/timer.taskId undefined."
+        },
+        {
+          "criterion": "History remains readable when its task was deleted.",
+          "verdict": "PASS",
+          "evidence": "Independent after completed linked task deletion history Unlinked session and saved session.taskId undefined."
+        },
+        {
+          "criterion": "Completion is announced meaningfully without announcing every tick.",
+          "verdict": "PASS",
+          "evidence": "Executed role status saved session meaningful; clock not aria-live; status updated only lifecycle not ticks."
+        },
+        {
+          "criterion": "Storage failure remains visible and does not crash countdown.",
+          "verdict": "PASS",
+          "evidence": "Independent completion quota failure alert/unsaved status leaves storage/history unchanged; independent ordinary tick quota failure pauses and stays unchanged10sec."
+        },
+        {
+          "criterion": "Test duration boundaries and exactly-once completion.",
+          "verdict": "PASS",
+          "evidence": "Executed duration boundary and exactlyonce tests; independent StrictMode duplicate-loop coverage."
+        },
+        {
+          "criterion": "Check pause/resume/reset and task deletion.",
+          "verdict": "PASS",
+          "evidence": "Executed pause/resume/reset and App deletion tests."
+        },
+        {
+          "criterion": "Check reload restores paused remaining time and history.",
+          "verdict": "PASS",
+          "evidence": "Independent persisted completed history/settings remount; executed paused snapshot restoration."
+        },
+        {
+          "criterion": "Use executed fake-timer component integration tests for timer lifecycle; no fabricated browser observations.",
+          "verdict": "PASS",
+          "evidence": "Actual fake timer tests run; no browser observations claimed."
+        },
+        {
+          "criterion": "Changes committed with genuine history; actual issue linked when available.",
+          "verdict": "PASS",
+          "evidence": "Implementation f92ba2a verified; remote issue unavailable."
+        },
+        {
+          "criterion": "Independent QA records acceptance evidence; failures fixed before closure.",
+          "verdict": "PASS",
+          "evidence": "Independent full acceptance report committed; no production defects identified."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "status": "PASS",
+      "commit": "[private local development commit]",
+      "acceptance": [
+        {
+          "criterion": "Export is a user-triggered JSON file download.",
+          "verdict": "PASS",
+          "evidence": "Executed component Export click creates JSON Blob and clicks anchor; independent observes download filename/date and href. Actual browser download not inspected."
+        },
+        {
+          "criterion": "Backup schemaVersion is exactly 1.",
+          "verdict": "PASS",
+          "evidence": "Executed backupJson roundtrip version1; parser rejects2."
+        },
+        {
+          "criterion": "Backup contains tasks, sessions and settings consistent with current app state.",
+          "verdict": "PASS",
+          "evidence": "Independent full state roundtrip tasks/sessions/settings/timer equality."
+        },
+        {
+          "criterion": "Optional timer snapshot is either validated or omitted consistently.",
+          "verdict": "PASS",
+          "evidence": "Executed invalid timer null/false/0/remaining61 and dangling reference rejected; independent valid30sec preserved."
+        },
+        {
+          "criterion": "Export preserves task IDs, completion and session timestamps.",
+          "verdict": "PASS",
+          "evidence": "Independent full roundtrip equality preserves id,completedtrue,session ISO timestamp."
+        },
+        {
+          "criterion": "Read selected JSON and reject parsing failures visibly.",
+          "verdict": "PASS",
+          "evidence": "Executed broken JSON visible; independent rejected file.text read failure visible."
+        },
+        {
+          "criterion": "Reject unsupported schemaVersion before replacing data.",
+          "verdict": "PASS",
+          "evidence": "Executed schema2 parse throws and replacement validation occurs before confirm."
+        },
+        {
+          "criterion": "Reject missing required collections/settings or wrong types.",
+          "verdict": "PASS",
+          "evidence": "Executed tasksnull and invalid settings; parser requires task/session arrays."
+        },
+        {
+          "criterion": "Validate every task, including title/subject lengths, date, priority and boolean completion.",
+          "verdict": "PASS",
+          "evidence": "Executed model limits and independent imported title121,blank subject,notes2001,string completion,urgent priority rejected."
+        },
+        {
+          "criterion": "Reject duplicate task IDs and duplicate session IDs.",
+          "verdict": "PASS",
+          "evidence": "Executed duplicate task and duplicate session IDs rejected."
+        },
+        {
+          "criterion": "Validate session duration range and completion timestamp.",
+          "verdict": "PASS",
+          "evidence": "Executed session121/bad calendar timestamp rejected; independent session0 rejected."
+        },
+        {
+          "criterion": "Validate configured focus duration as integer 1\u2013120.",
+          "verdict": "PASS",
+          "evidence": "Executed fractional1.5 rejected; independent0/121 rejected."
+        },
+        {
+          "criterion": "Validate optional timer remaining seconds and task references according to documented policy.",
+          "verdict": "PASS",
+          "evidence": "Executed timer61/dangling/nullfalse0 rejected; independent -1/fractional seconds rejected; historical removed task allowed documented."
+        },
+        {
+          "criterion": "Malformed record in otherwise valid backup rejects entire import.",
+          "verdict": "PASS",
+          "evidence": "Independent backup with one valid/one title121 malformed task throws entire parse."
+        },
+        {
+          "criterion": "Show replacement confirmation only after complete validation.",
+          "verdict": "PASS",
+          "evidence": "Independent read failure confirm not called; source confirm only after complete parseState."
+        },
+        {
+          "criterion": "Cancel replacement leaves tasks, sessions, settings and timer unchanged.",
+          "verdict": "PASS",
+          "evidence": "Executed cancel import retains3 tasks; independent complete state JSON exact unchanged and active timer continues."
+        },
+        {
+          "criterion": "Confirmed valid replacement applies complete backup atomically.",
+          "verdict": "PASS",
+          "evidence": "Executed valid confirmed replacement removes tasks and restores timer paused; state persisted before UI replacement/epoch update."
+        },
+        {
+          "criterion": "Invalid import leaves original state and saved data unchanged.",
+          "verdict": "PASS",
+          "evidence": "Executed invalid JSON leaves3 tasks; independent read failure preserves exact prior JSON."
+        },
+        {
+          "criterion": "Storage error does not falsely report a successful saved replacement.",
+          "verdict": "PASS",
+          "evidence": "Executed storage replacement setItem throw visibly not restored and3 tasks retained."
+        },
+        {
+          "criterion": "Import errors clearly explain failure and allow retry.",
+          "verdict": "PASS",
+          "evidence": "Executed error messages visible; same file input cleared finally for retry; subsequent cancel/confirmed imports tested."
+        },
+        {
+          "criterion": "Demo seeding is an explicit action.",
+          "verdict": "PASS",
+          "evidence": "Source/demo button explicit; executed demoState not automatic."
+        },
+        {
+          "criterion": "Demo never overwrites a nonempty task collection.",
+          "verdict": "PASS",
+          "evidence": "Executed demoState(nonempty) throws; UI hides demo nonempty; code does not overwrite."
+        },
+        {
+          "criterion": "Demo produces realistic valid tasks useful for demonstrating urgency.",
+          "verdict": "PASS",
+          "evidence": "Executed demo3 valid tasks date yesterday/today/nextweek and high/high/medium; parser validates."
+        },
+        {
+          "criterion": "Automated tests exercise malformed/version/type/date/ID/range cases.",
+          "verdict": "PASS",
+          "evidence": "Executed BackupPanel tests cover malformed/version/types/calendar/duplicate/ranges; extra independent cases supplement."
+        },
+        {
+          "criterion": "Automated tests exercise valid export/import roundtrip.",
+          "verdict": "PASS",
+          "evidence": "Executed blank/demo roundtrip; independent full tasks/session/timer exact roundtrip."
+        },
+        {
+          "criterion": "Component integration tests exercise export payload and replacement-confirmation cancellation.",
+          "verdict": "PASS",
+          "evidence": "Executed click JSON Blob MIME+anchor and cancellation; independent dated filename/href/url revoke."
+        },
+        {
+          "criterion": "Changes committed with genuine history; actual issue linked when available.",
+          "verdict": "PASS",
+          "evidence": "Implementation30565ac verified, real issue unavailable."
+        },
+        {
+          "criterion": "Independent QA records acceptance evidence; failures fixed before closure.",
+          "verdict": "PASS",
+          "evidence": "Full independent report committed; no reproducible defect, production unchanged."
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "status": "PASS",
+      "commit": "[private local development commit]",
+      "acceptance": [
+        {
+          "criterion": "README identifies app purpose and MVP features.",
+          "verdict": "PASS",
+          "evidence": "Read README purpose and five implemented feature groups; matches App/FocusTimer/BackupPanel."
+        },
+        {
+          "criterion": "README gives exact install/dev/test/build commands.",
+          "verdict": "PASS",
+          "evidence": "README install npm ci/dev/test/typecheck/build/format:check commands match package.json scripts."
+        },
+        {
+          "criterion": "README explains local-only storage, backups and refresh-paused timer.",
+          "verdict": "PASS",
+          "evidence": "README Data and limits explains browser-only storage, backups, and refresh paused no wall-time."
+        },
+        {
+          "criterion": "README has a reproducible demonstration sequence.",
+          "verdict": "PASS",
+          "evidence": "README two-minute demo gives five actionable steps including cancel/confirm checks."
+        },
+        {
+          "criterion": "AGENTS.md, CLAUDE.md, plan/process/task template/team roles exist and contain project-specific content.",
+          "verdict": "PASS",
+          "evidence": "Inventory read AGENTS/CLAUDE/plan/process/template/team roles; nonempty project-specific contents verified."
+        },
+        {
+          "criterion": "Technology, architecture, design and testing docs match implemented behavior.",
+          "verdict": "PASS",
+          "evidence": "Reviewed tech/architecture/design/testing/api against current source: version1/storage key/local dates/canonical timestamps/ranges1\u2013120/upload1MB/history5 all match."
+        },
+        {
+          "criterion": "chat-brainstorm.md contains genuine available messages and separates assistant defaults.",
+          "verdict": "PASS",
+          "evidence": "Read chat transcript against visible exchange; supplied deadline/delegation and unanswered personal questions separated from defaults."
+        },
+        {
+          "criterion": "No fabricated interview answers, commits or QA results appear.",
+          "verdict": "PASS",
+          "evidence": "Chat no invented answers; local commit history and QA records preserve actual failure/test evidence. Remote success never claimed."
+        },
+        {
+          "criterion": "Video/example access gaps are documented honestly.",
+          "verdict": "PASS",
+          "evidence": "source-review explicitly partial video metadata/chapters only, unavailable transcript; example API later recovered distinguished from initial access failure."
+        },
+        {
+          "criterion": "Execute automated suite and record command, totals and outcome.",
+          "verdict": "PASS",
+          "evidence": "Independent npm test executed4files28tests pass."
+        },
+        {
+          "criterion": "Execute production build and fix errors.",
+          "verdict": "PASS",
+          "evidence": "Independent npm run build executed tsc+Vite33modules successful."
+        },
+        {
+          "criterion": "Execute typecheck if configured and record actual result.",
+          "verdict": "PASS",
+          "evidence": "Independent npm run typecheck exited0."
+        },
+        {
+          "criterion": "Execute component integration checks for task creation/edit/delete/complete and persisted state restoration.",
+          "verdict": "PASS",
+          "evidence": "Executed App CRUD/edit/complete/reopen/delete/remount test in suite; earlier independent extra selected deletion/schema/safe-text checks passed."
+        },
+        {
+          "criterion": "Execute DOM integration and pure logic checks for dashboard/filter/sort behavior.",
+          "verdict": "PASS",
+          "evidence": "Executed model combined filter/sort/counts + DOM filter totals check; independent03 additional search/filters/purity passed."
+        },
+        {
+          "criterion": "Execute fake-timer component integration checks for pause/resume/reset and completed history.",
+          "verdict": "PASS",
+          "evidence": "Executed FocusTimer fake-timer lifecycle4tests + App persisted link; independent04 StrictMode/history/quota checks passed."
+        },
+        {
+          "criterion": "Execute component integration checks for valid/invalid import, cancellation and demo non-overwrite.",
+          "verdict": "PASS",
+          "evidence": "Executed BackupPanel9tests plus prior independent05 four supplementary checks cancellation/reset/export/atomic cases."
+        },
+        {
+          "criterion": "Inspect responsive CSS and associated labels/native controls in DOM; record unavailable real-browser visual/keyboard checks as limitations.",
+          "verdict": "PASS",
+          "evidence": "Reviewed CSS grid/mobile/focus/wrap and DOM label/native controls; previous independent label loop and create-focus executed. Browser visual/keyboard remains unavailable."
+        },
+        {
+          "criterion": "Document all unexecuted real-browser checks separately; local QA closure does not claim visual verification.",
+          "verdict": "PASS",
+          "evidence": "QA01/03/05 reports and README/testing/compliance enumerate real-server, viewport, clipping, keyboard and actual downloaded-file unverified checks."
+        },
+        {
+          "criterion": "Fix reproducible defects and rerun affected checks.",
+          "verdict": "PASS",
+          "evidence": "Scaffold hostname corrected after recorded QA failure; parser strengthened05; formatting corrected06. Final full tests/build/typecheck/format safety checks pass."
+        },
+        {
+          "criterion": "GitHub publication is tracked in draft 07 and remains blocked until actual remote verification.",
+          "verdict": "PASS",
+          "evidence": "Draft07 exists separately; public repo/issues/remote SHA/timestamps unavailable without auth. No fake publication record created."
+        },
+        {
+          "criterion": "Final compliance distinguishes completed, provisional and inaccessible requirements.",
+          "verdict": "PASS",
+          "evidence": "Compliance table distinguishes verified local, provisional product/interview, missing spoken-video/browser/GitHub evidence."
+        },
+        {
+          "criterion": "Changes committed with genuine history; actual issue linked when available.",
+          "verdict": "PASS",
+          "evidence": "Actual implementation commit a53f1fc verified; Git history genuine. No real issue available."
+        },
+        {
+          "criterion": "Independent QA records acceptance evidence; failures fixed before closure.",
+          "verdict": "PASS",
+          "evidence": "Independent QA report plus code review and acceptance record committed; checks all pass within explicit local scope."
+        }
+      ]
+    }
+  ]
+}

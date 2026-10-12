@@ -1,0 +1,11 @@
+node_modules/
+dist/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+.github-handoff-state.json
+git-history.bundle
+
+_private/
+.github-handoff-state.json
+git-history.bundle
